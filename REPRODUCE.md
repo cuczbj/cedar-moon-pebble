@@ -4,18 +4,18 @@
 
 ## 1. 克隆与原始数据
 
-这是私有仓库，复现者需要仓库读取权限（仓库所有者在GitHub的Settings → Collaborators中邀请）。
+这是公开仓库，复现者可以直接克隆，无需邀请。
 
 ```powershell
-git clone https://github.com/cuczbj/q1-multimodal-alignment.git
-cd q1-multimodal-alignment
+git clone https://github.com/cuczbj/cedar-moon-pebble.git
+cd cedar-moon-pebble
 ```
 
 将比赛附件1原样解压。默认布局如下，label表与video_id文件夹必须同级：
 
 ```text
 工作目录/
-├─ q1-multimodal-alignment/     # 仓库根目录
+├─ cedar-moon-pebble/          # 仓库根目录
 │  ├─ run.py
 │  ├─ config.yaml
 │  └─ tools/
