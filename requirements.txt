@@ -1,0 +1,17 @@
+numpy>=1.26,<3
+PyYAML>=6,<7
+filelock>=3.13
+openpyxl>=3.1,<4
+torch>=2.5
+transformers>=4.44,<5
+opensmile==2.6.0
+soundfile>=0.12
+av>=14
+imageio-ffmpeg>=0.6
+Pillow>=10
+num2words>=0.5.14
+praatio>=6
+matplotlib>=3.8
+scipy>=1.11
+pytest>=8
+# Install whisperx separately; its torch/torchaudio requirements depend on release.

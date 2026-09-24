@@ -1,0 +1,87 @@
+# All paths are relative to this file; CLI --limit creates an isolated smoke output.
+data_root: ../E题数据
+label_glob: '**/label-100.xlsx'
+output_dir: outputs
+model_cache: models
+expected_samples: 100
+seed: 20260923
+device: auto
+torch_threads: 4
+media:
+  sample_rate: 16000
+  short_clip_seconds: 0.5
+  frame_gap_factor: 2.5
+  pts_tolerance_s: 0.002
+  save_frames: false
+  min_free_mb: 256
+  image_format: jpg
+  jpeg_quality: 95
+text:
+  model: bert-base-uncased
+  revision: 86b5e0934494bd15c9632b12f734a8a67f723594
+  local_files_only: false
+  download_retries: 4
+  stable_linear: true
+  inference_pad_multiple: 128
+  layer: -1
+  max_positions: 512
+  batch_tolerance: 0.00001
+  batch_check_length_difference: 8
+  normalize_unicode: NFKC
+  alignment_overrides: {}
+alignment:
+  backend: whisperx
+  model: WAV2VEC2_ASR_BASE_960H
+  language: en
+  min_score: 0.5
+  mfa_executable: mfa
+  mfa_dictionary: english_us_arpa
+  mfa_acoustic_model: english_us_arpa
+  mfa_unknown_score: null
+audio:
+  feature_set: eGeMAPSv02
+  hop_ms: 10
+  # eGeMAPS uses multiple short windows and built-in smoothing. Do not label
+  # its outputs as strictly independent 25-ms measurements.
+  config_override: null
+  hop_tolerance_ms: 0.1
+vision:
+  executable: tools/OpenFace_2.2.0_win_x64/FeatureExtraction.exe
+  landmark_model: model/main_clnf_general.txt
+  au_mode: static
+  min_confidence: 0.8
+  columns_regex: '^(AU\d+_[rc]|pose_[RT][xyz]|gaze_[01]_[xyz]|gaze_angle_[xy]|confidence)$'
+  version_label: OpenFace 2.2
+pooling:
+  method: mean
+  subword_time: shared
+  extend_empty_window: true
+  min_audio_window_s: 0.01
+  min_visual_window_s: 0.04
+receptive_field:
+  epsilon: 1.0e-12
+  rollout: true
+  gradient: false
+  repeat_check: true
+  row_sum_tolerance: 0.001
+  repeat_atol: 0.00001
+length:
+  pad_multiple: 8
+  compat_length: 50
+quality:
+  pool_rtol: 0.01
+  pool_atol: 0.002
+  text_rtol: 0.001
+  text_atol: 0.004
+  fail_on_degenerate_receptive_rows: true
+export:
+  target_mb: 25
+  gzip_pickle: true
+  include_raw: true
+  include_rollout: true
+visualize:
+  dpi: 300
+  max_words: 45
+  keyframes: 4
+  preferred_terms: [not, "n't", never, no, but, although]
+  sample_id: null

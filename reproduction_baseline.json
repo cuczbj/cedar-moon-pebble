@@ -1,0 +1,60 @@
+{
+  "scope": "Reference from original completed 100-sample run; not a fresh-machine validation",
+  "python": "3.12.14",
+  "platform": "Windows",
+  "gpu": "RTX 5060 Ti 16GB",
+  "packages": {
+    "torch": "2.9.0+cu128",
+    "torchaudio": "2.9.0+cu128",
+    "transformers": "4.57.6",
+    "whisperx": "3.8.6",
+    "opensmile": "2.6.0",
+    "av": "18.1.0",
+    "numpy": "2.5.3",
+    "openpyxl": "3.1.5",
+    "num2words": "0.5.14",
+    "praatio": "6.2.2",
+    "PyYAML": "6.0.3"
+  },
+  "models": {
+    "forced_alignment": {
+      "backend": "whisperx",
+      "name": "WAV2VEC2_ASR_BASE_960H",
+      "state_dict_sha256": "e3acb78fcc2bc7813b15eef0d3cd75209aad69c9bd0b2782e04bc0e48f66a968"
+    },
+    "bert": {
+      "name": "bert-base-uncased",
+      "revision": "main",
+      "resolved_commit": "86b5e0934494bd15c9632b12f734a8a67f723594",
+      "state_dict_sha256": "862f2ad8eb15a3aa7a579875c38d422b142447652259f4d1f93c00a0c2114805",
+      "layer": -1,
+      "tokenizer_sha256": "9114256b104cca80e04367526f03f46aa3c443c2ed174904142a73bbf13b9fbb",
+      "dtype": "float32",
+      "device": "cuda",
+      "eval": true,
+      "stable_tokenwise_linear": true,
+      "inference_pad_multiple": 128
+    }
+  },
+  "openface_sha256": "a29ba49cfc59039bfe5e2f141898b2a110da420f6f520d6a923a86ac78cd96ae",
+  "bert_resolved_revision": "86b5e0934494bd15c9632b12f734a8a67f723594",
+  "samples": 100,
+  "full_shapes": {
+    "text": [
+      100,
+      88,
+      768
+    ],
+    "audio": [
+      100,
+      88,
+      25
+    ],
+    "vision": [
+      100,
+      88,
+      50
+    ]
+  },
+  "tests_passed": 16
+}

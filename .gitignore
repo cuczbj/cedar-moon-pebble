@@ -1,0 +1,13 @@
+__pycache__/
+.pytest_cache/
+outputs*/
+tools/
+models/
+.venv/
+.venv-*/
+.env
+.env.*
+!.env.example
+*.py[cod]
+*.log
+config.local.yaml
